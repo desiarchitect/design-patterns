@@ -1,0 +1,9 @@
+# Keep the build context small and reproducible
+**/bin/
+**/obj/
+.git/
+.vs/
+.vscode/
+.idea/
+tests/
+*.user

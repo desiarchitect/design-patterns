@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="DesiArchitect.DesignPatterns/DesiArchitect.DesignPatterns.csproj" />
+  <Folder Name="/tests/">
+    <Project Path="tests/DesiArchitect.DesignPatterns.Tests/DesiArchitect.DesignPatterns.Tests.csproj" />
+  </Folder>
+</Solution>
