@@ -8,7 +8,8 @@ public class BillCalculator
         bool hasPackaging,
         bool hasDelivery,
         bool hasPlatformFee,
-        bool hasSurge)
+        bool hasSurge,
+        bool hasConvenienceFee = false)
     {
         var total = itemTotal;
         Console.WriteLine($"  [Before] Item total: ₹{total}");
@@ -33,8 +34,13 @@ public class BillCalculator
             total += 20;
             Console.WriteLine($"  [Before] + Surge: ₹20 -> ₹{total}");
         }
+        if (hasConvenienceFee)                          // flag #5 - overlaps platform when both on
+        {
+            total += 5;
+            Console.WriteLine($"  [Before] + Convenience fee: ₹5 -> ₹{total}");
+        }
         // New charge = new flag = new parameter = update every caller
-        // Testing? 2^4 = 16 combinations. Add one more flag? 32.
+        // Testing? 2^5 = 32 combinations. Overlap: platform + convenience both add fee.
 
         return total;
     }

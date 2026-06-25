@@ -3,9 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "TypeScript companion to The Desi Architect design-patterns video - Strategy, Factory, Observer (Before vs After).",
+  "description": "TypeScript companion to The Desi Architect design-patterns video - 7 patterns (Before vs After).",
   "scripts": {
     "demo": "tsx src/index.ts",
+    "start": "tsx src/index.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

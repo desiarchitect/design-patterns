@@ -2,10 +2,10 @@
 
 > Companion code for [The Desi Architect](https://youtube.com/@desiarchitect) YouTube video.
 
-The same three patterns shown in the video - **Strategy, Factory, Observer** - implemented in
-**TypeScript / Node**, with the same **Before** (anti-pattern) and **After** (clean) split.
-The C# version lives in [`../csharp/`](../csharp/). The pattern is the lesson; the language is
-interchangeable.
+All seven patterns from the video - **Strategy, Factory, Observer, Decorator, Singleton,
+Adapter, Facade** - implemented in **TypeScript / Node**, with the same **Before**
+(anti-pattern) and **After** (clean) split. The C# version lives in [`../csharp/`](../csharp/).
+The pattern is the lesson; the language is interchangeable.
 
 ## Quick start
 
@@ -15,8 +15,9 @@ npm install
 npm run demo
 ```
 
-Pick a pattern (1-3) from the menu to see its Before vs After run live.
-Requires Node 18+ (uses ESM + `Atomics.wait`). `npm run typecheck` runs `tsc --noEmit`.
+Pick a pattern (1-7) from the menu to see its Before vs After run live.
+Requires Node 18+. `npm run start` is an alias for `npm run demo`. `npm run typecheck` runs
+`tsc --noEmit`.
 
 ## What each pattern shows
 
@@ -25,6 +26,10 @@ Requires Node 18+ (uses ESM + `Atomics.wait`). `npm run typecheck` runs `tsc --n
 | 1 | Strategy | `payment-service.ts` - one if-else file, shared key load | a class per provider behind `IPaymentStrategy` |
 | 2 | Factory  | `new` scattered across files | `PaymentStrategyFactory` centralizes creation |
 | 3 | Observer | god method blocks on a slow SMS call | publisher broadcasts; subscribers run in the background |
+| 4 | Decorator | 5 boolean flags (2^5 = 32 combos) | `IBill` decorator chain |
+| 5 | Singleton | static `AppConfig.instance` | `SimpleContainer` + injected `IAppConfig` |
+| 6 | Adapter | partner-specific if-else branches | `ILogisticsPartner` adapters per vendor |
+| 7 | Facade | 300-line inline controller | `BookingFacade` orchestrates subsystems |
 
 ## Blast radius across runtimes (important)
 

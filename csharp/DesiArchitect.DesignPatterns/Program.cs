@@ -183,6 +183,10 @@ void RunDecorator()
     var beforeTotal = before.CalculateBill(450, true, true, true, false);
     Console.WriteLine($"  Final bill: ₹{beforeTotal}");
 
+    PrintSubHeader("BEFORE - Overlap bug (platform + convenience both on)");
+    var overlapTotal = before.CalculateBill(450, true, true, true, false, hasConvenienceFee: true);
+    Console.WriteLine($"  Final bill (overlap): ₹{overlapTotal}  <- silent double-fee when both branches active");
+
     PrintSubHeader("AFTER - Each charge is a clean wrapper");
     DecoratorAfter.IBill bill = new DecoratorAfter.BaseBill(450);
     bill = new DecoratorAfter.PackagingDecorator(bill);
@@ -202,7 +206,7 @@ void RunSingleton(IServiceProvider sp)
     PrintSubHeader("BEFORE - Static AppConfig.Instance everywhere");
     var beforeService = new SingletonBefore.OrderService();
     beforeService.PlaceOrder("Laptop");
-    Console.WriteLine("  [Before] Cannot mock, cannot test, cannot swap.");
+    Console.WriteLine("  [Before] Mock karna practically mushkil - ugly hacks ya test isolation todna padega.");
 
     PrintSubHeader("AFTER - DI container manages the single instance");
     var service = sp.GetRequiredService<SingletonAfter.OrderService>();

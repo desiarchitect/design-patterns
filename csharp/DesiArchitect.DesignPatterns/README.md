@@ -44,7 +44,7 @@ DesiArchitect.DesignPatterns/
 │   └── After/                            # Publisher + Subscribers
 │
 ├── 04_Decorator/
-│   ├── Before/BillCalculator.cs          # boolean-flag hell
+│   ├── Before/BillCalculator.cs          # 5 boolean flags (2^5 = 32 combos)
 │   └── After/                            # wrapping decorators
 │
 ├── 05_Singleton/
