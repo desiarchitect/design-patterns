@@ -10,6 +10,7 @@ import { BaseBill } from './04-decorator/after/base-bill.js';
 import { PackagingDecorator } from './04-decorator/after/packaging-decorator.js';
 import { DeliveryDecorator } from './04-decorator/after/delivery-decorator.js';
 import { PlatformFeeDecorator } from './04-decorator/after/platform-fee-decorator.js';
+import { ConvenienceFeeDecorator } from './04-decorator/after/convenience-fee-decorator.js';
 
 // Singleton
 import { OrderService as SingletonBeforeOrderService } from './05-singleton/before/order-service.js';
@@ -142,6 +143,7 @@ function runDecorator(): void {
   bill = new PackagingDecorator(bill);
   bill = new DeliveryDecorator(bill);
   bill = new PlatformFeeDecorator(bill);
+  bill = new ConvenienceFeeDecorator(bill);
   const afterTotal = bill.total();
   console.log(`  Final bill: ₹${afterTotal}`);
 

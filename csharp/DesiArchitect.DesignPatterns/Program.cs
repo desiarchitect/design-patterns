@@ -192,6 +192,7 @@ void RunDecorator()
     bill = new DecoratorAfter.PackagingDecorator(bill);
     bill = new DecoratorAfter.DeliveryDecorator(bill);
     bill = new DecoratorAfter.PlatformFeeDecorator(bill);
+    bill = new DecoratorAfter.ConvenienceFeeDecorator(bill);
     var afterTotal = bill.Total();
     Console.WriteLine($"  Final bill: ₹{afterTotal}");
 
